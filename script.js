@@ -10,10 +10,10 @@
 // You will have time to focus on it later.
 
 (function() {
-    let button = document.getElementById("increment");
-    let counter = document.getElementById("target");
+    let image = document.getElementById("clickImage");
+    let counter = document.getElementById("counter");
 
-    button.addEventListener("click", function (){
+    image.addEventListener("click", function (){
         counter.innerHTML++;
         //store
         localStorage.setItem("lastCount", counter.innerHTML);
