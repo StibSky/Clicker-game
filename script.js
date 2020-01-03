@@ -8,14 +8,31 @@
 
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
+let upgradeCost = +document.querySelector(".cost");
 
 (function() {
-    let upgradeCost = document.querySelectorAll(".cost");
-    //console.log(upgradeCost[1].innerHTML);
+    var Buttons = document.querySelectorAll(".upgradeBtn");
+    console.log(Buttons);
 
     document.querySelectorAll(".upgradeBtn").forEach(function (btn) {
         btn.addEventListener("click", function () {
-            console.log(btn)
+            console.log(btn.id);
+            switch (btn) {
+                case upgradeBtn1:
+                    console.log("Dit werkt.");
+                    document.getElementById("counter").innerHTML = upgradeCost * 1.1;
+                    break;
+                case upgradeBtn2:
+                    console.log("blijkbaar dit ook");
+                    break;
+                case upgradeBtn3:
+                    console.log("blijkbaar dit ook");
+                    break;
+                case upgradeBtn4:
+                    console.log("blijkbaar dit ook");
+                    break;
+            }
+
         })
     });
 
