@@ -1,5 +1,5 @@
 #upgradeBlock {
-    border: 10px solid black;
+    border: 6px solid black;
     padding: 1em;
 }
 
@@ -15,7 +15,7 @@
 }
 
 #imageClicker {
-    margin-top: 10em;
+    margin-top: 5em;
     width: 15em;
     border-radius: 50%;
     cursor: pointer;
