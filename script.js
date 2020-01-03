@@ -10,6 +10,17 @@
 // You will have time to focus on it later.
 
 (function() {
+    let upgradeCost = document.querySelectorAll(".cost");
+    //console.log(upgradeCost[1].innerHTML);
+
+    document.querySelectorAll(".upgradeBtn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            console.log(btn)
+        })
+    });
+
+
+
     let image = document.getElementById("clickImage");
     let counter = document.getElementById("counter");
 
