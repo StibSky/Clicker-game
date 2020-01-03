@@ -15,6 +15,11 @@ img {
     user-select: none;
 }
 
+.upgradeIcon {
+    height: 5em;
+    width: auto;
+}
+
 * {
     background-image: url("image/circuit.png");
 }
