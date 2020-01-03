@@ -19,8 +19,7 @@ let upgradeCost = +document.querySelectorAll(".cost");
             console.log(btn.id);
             switch (btn) {
                 case upgradeOne:
-                    console.log("Dit werkt.");
-
+                    
                     break;
                 case upgradeTwo:
                     console.log("blijkbaar dit ook");

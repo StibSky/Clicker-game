@@ -3,6 +3,10 @@
     padding: 1em;
 }
 
+#upgradeOne {
+    border: 2px solid black;
+}
+
 #imageClicker {
     margin-top: 10em;
     width: 15em;
