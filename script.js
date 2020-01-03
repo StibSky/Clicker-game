@@ -8,7 +8,9 @@
 
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
-let upgradeCost = +document.querySelectorAll(".cost");
+let upgradeCost = document.querySelectorAll(".cost");
+let counter = document.getElementById("counter");
+console.log(counter);
 
 (function() {
     var Buttons = document.querySelectorAll(".upgradeBtn");
@@ -19,16 +21,21 @@ let upgradeCost = +document.querySelectorAll(".cost");
             console.log(btn.id);
             switch (btn) {
                 case upgradeOne:
-                    
+                    upgradeCost[0].innerHTML = Math.floor(Number(upgradeCost[0].innerHTML)*1.1);
+                    if (counter.innerHTML > upgradeCost[0]){
+                        //let newCounter = counter.value - upgradeCost[0].innerHTML;
+                        console.log(counter.value);
+                        //counter.innerHTML = newCounter;
+                    }
                     break;
                 case upgradeTwo:
-                    console.log("blijkbaar dit ook");
+                    upgradeCost[1].innerHTML = Math.floor(Number(upgradeCost[1].innerHTML)*1.1);
                     break;
                 case upgradeThree:
-                    console.log("blijkbaar dit ook");
+                    upgradeCost[2].innerHTML = Math.floor(Number(upgradeCost[2].innerHTML)*1.1);
                     break;
                 case upgradeFour:
-                    console.log("blijkbaar dit ook");
+                    upgradeCost[3].innerHTML = Math.floor(Number(upgradeCost[3].innerHTML)*1.1);
                     break;
             }
 
