@@ -10,3 +10,6 @@ img {
     user-select: none;
 }
 
+* {
+    background-image: url("image/circuit.png");
+}
