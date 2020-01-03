@@ -2,5 +2,6 @@ img {
     margin-top: 10em;
     width: 15em;
     border-radius: 50%;
+    cursor: pointer;
 }
 
