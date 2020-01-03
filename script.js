@@ -9,8 +9,8 @@
 // NOTE: don't focus on the existing code structure for now.
 // You will have time to focus on it later.
 let upgradeCost = document.querySelectorAll(".cost");
-let counter = document.getElementById("counter");
-console.log(counter);
+let counter = document.querySelector("#counter");
+console.log();
 
 (function() {
     var Buttons = document.querySelectorAll(".upgradeBtn");
@@ -18,14 +18,14 @@ console.log(counter);
 
     document.querySelectorAll(".upgradeBtn").forEach(function (btn) {
         btn.addEventListener("click", function () {
-            console.log(btn.id);
             switch (btn) {
                 case upgradeOne:
                     upgradeCost[0].innerHTML = Math.floor(Number(upgradeCost[0].innerHTML)*1.1);
                     if (counter.innerHTML > upgradeCost[0]){
-                        //let newCounter = counter.value - upgradeCost[0].innerHTML;
-                        console.log(counter.value);
-                        //counter.innerHTML = newCounter;
+                        var localStorage = localStorage.getItem("lastCount");
+                        var newCount = localStorage - upgradeCost[0];
+                        console.log(newCount);
+                        counter.innerHTML = newCount;
                     }
                     break;
                 case upgradeTwo:
