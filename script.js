@@ -1,15 +1,21 @@
 
-let upgradeCost = 10;
+let upgradeCost = 0;
 let counter = document.querySelector("#counter");
 let clickAmount = 0;
 let intervalIncrease = 0;
 let totalAmaount = 0;
 
-function oneUp() {
 
-        intervalIncrease++;
-        totalAmaount = intervalIncrease + clickAmount - upgradeCost;
-        counter.innerHTML = totalAmaount;
+
+//upgrade
+function oneUp() {
+        if (totalAmaount >= 10)
+        {
+            intervalIncrease++;
+
+
+            updateVegan();
+        }
         return intervalIncrease;
 
 }
@@ -27,8 +33,8 @@ function Cookie() {
     this.click = function () {
 
         clickAmount++;
-        totalAmaount = clickAmount + intervalIncrease;
-        counter.innerHTML = totalAmaount;
+        updateVegan();
+
         return totalAmaount;
 
     };
@@ -38,8 +44,9 @@ function Cookie() {
             console.log("fuck off mate");
         } else {
             setInterval(oneUp, 1000);
-            totalAmaount = clickAmount + intervalIncrease;
-            counter.innerHTML = totalAmaount;
+            upgradeCost += 10;
+            updateVegan();
+
 
             return totalAmaount;
         }
@@ -85,3 +92,11 @@ let cookie1 = new Cookie();
 document.getElementById("reset").addEventListener("click", function () {
     localStorage.clear();
 });
+
+function updateVegan() {
+    totalAmaount = intervalIncrease + clickAmount - upgradeCost;
+    counter.innerHTML = totalAmaount;
+    document.getElementById("debugClick").innerHTML = "ClickAmount= "+ clickAmount;
+    document.getElementById("debugTotal").innerHTML = "TotalAmount= "+ totalAmaount;
+    document.getElementById("debugUpdate").innerHTML= "UpdateAmount= " + intervalIncrease;
+}
