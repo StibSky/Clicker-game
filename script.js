@@ -1,28 +1,45 @@
 
 let upgradeCost = document.querySelectorAll(".cost");
 let counter = document.querySelector("#counter");
+let i = 0;
+function oneUp() {
+    i++;
+    document.getElementById("countUp").innerHTML = i;
+}
+
+document.getElementById("upgradeOne").addEventListener("click", function () {
+    setInterval(oneUp, 1000);
+});
+
 
 
 
 function Cookie(clicks, autoincrease) {
 
     this.clicks = clicks;
-    this.autoincrease = autoincrease;
 
     this.autoIncrease = function test() {
 
-        this.amount = this.amount * + 1 * autoincrease;
-        setInterval()
+        this.clicks += autoincrease;
 
-    }
+        setInterval(test, 1000)
+    };
 
 }
 
 new Cookie(0, 0);
 
 
+
+
+
+
+
+
+
+
+// cookie clickable and saves number
     let image = document.getElementById("clickImage");
-    let counter = document.getElementById("counter");
 
     image.addEventListener("click", function (){
         counter.innerHTML++;
@@ -37,3 +54,6 @@ new Cookie(0, 0);
 
 
 
+document.getElementById("reset").addEventListener("click", function () {
+    localStorage.clear();
+});
