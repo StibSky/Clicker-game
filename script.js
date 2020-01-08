@@ -34,19 +34,17 @@ function Cookie() {
     };
 
     this.autoIncrease = function () {
-        if (totalAmaount - upgradeCost <= 0){
+        if (totalAmaount - upgradeCost < 0){
             console.log("fuck off mate");
         } else {
-            setInterval(oneUp, 1000);
             totalAmaount = clickAmount + intervalIncrease;
             counter.innerHTML = totalAmaount;
+            setInterval(oneUp, 1000);
+
 
             return totalAmaount;
         }
-
-    this.update = function () {
-
-    }
+        
     };
 
 
