@@ -1,18 +1,13 @@
 
-let upgradeCost = 10;
+
+let cookie1 = new Cookie();
+
+
+let upgradeCost = 0;
 let counter = document.querySelector("#counter");
 let clickAmount = 0;
 let intervalIncrease = 0;
 let totalAmaount = 0;
-
-function oneUp() {
-
-        intervalIncrease++;
-        totalAmaount = intervalIncrease + clickAmount - upgradeCost;
-        counter.innerHTML = totalAmaount;
-        return intervalIncrease;
-
-}
 
 let upgradeOne = document.getElementById("upgradeOne");
 
@@ -50,14 +45,6 @@ function Cookie() {
 
 }
 
-let cookie1 = new Cookie();
-
-
-
-
-
-
-
 
 
 
@@ -83,3 +70,11 @@ let cookie1 = new Cookie();
 document.getElementById("reset").addEventListener("click", function () {
     localStorage.clear();
 });
+
+function updateVegan() {
+    totalAmaount = intervalIncrease + clickAmount - upgradeCost;
+    counter.innerHTML = totalAmaount;
+    document.getElementById("debugClick").innerHTML = "ClickAmount= "+ clickAmount;
+    document.getElementById("debugTotal").innerHTML = "TotalAmount= "+ totalAmaount;
+    document.getElementById("debugUpdate").innerHTML= "UpdateAmount= " + intervalIncrease;
+}
