@@ -1,33 +1,58 @@
 
-let upgradeCost = document.querySelectorAll(".cost");
+let upgradeCost = 10;
 let counter = document.querySelector("#counter");
-let i = 0;
+let clickAmount = 0;
+let intervalIncrease = 0;
+let totalAmaount = 0;
+
 function oneUp() {
-    i++;
-    document.getElementById("countUp").innerHTML = i;
+
+        intervalIncrease++;
+        totalAmaount = intervalIncrease + clickAmount - upgradeCost;
+        counter.innerHTML = totalAmaount;
+        return intervalIncrease;
+
 }
 
-document.getElementById("upgradeOne").addEventListener("click", function () {
-    setInterval(oneUp, 1000);
-});
+let upgradeOne = document.getElementById("upgradeOne");
 
 
 
 
-function Cookie(clicks, autoincrease) {
 
-    this.clicks = clicks;
 
-    this.autoIncrease = function test() {
+function Cookie() {
 
-        this.clicks += autoincrease;
 
-        setInterval(test, 1000)
+    this.click = function () {
+
+        clickAmount++;
+        totalAmaount = clickAmount + intervalIncrease;
+        counter.innerHTML = totalAmaount;
+        return totalAmaount;
+
     };
 
+    this.autoIncrease = function () {
+        if (totalAmaount - upgradeCost <= 0){
+            console.log("fuck off mate");
+        } else {
+            setInterval(oneUp, 1000);
+            totalAmaount = clickAmount + intervalIncrease;
+            counter.innerHTML = totalAmaount;
+
+            return totalAmaount;
+        }
+
+    this.update = function () {
+
+    }
+    };
+
+
 }
 
-new Cookie(0, 0);
+let cookie1 = new Cookie();
 
 
 
@@ -40,11 +65,14 @@ new Cookie(0, 0);
 
 // cookie clickable and saves number
     let image = document.getElementById("clickImage");
+    upgradeOne.addEventListener("click", function () {
+            cookie1.autoIncrease();
+    });
 
     image.addEventListener("click", function (){
-        counter.innerHTML++;
+        cookie1.click();
         //store
-        localStorage.setItem("lastCount", counter.innerHTML);
+        localStorage.setItem("lastCount", totalAmaount);
 
     });
 
