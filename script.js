@@ -20,10 +20,12 @@ console.log();
         btn.addEventListener("click", function () {
             switch (btn) {
                 case upgradeOne:
-                    upgradeCost[0].innerHTML = Math.floor(Number(upgradeCost[0].innerHTML)*1.1);
-                    if (counter.innerHTML > upgradeCost[0]){
-                        var localStorage = localStorage.getItem("lastCount");
-                        var newCount = localStorage - upgradeCost[0];
+                    var upOne = upgradeCost[0].innerHTML;
+                    var countVal = counter.innerHTML;
+                        upgradeCost[0].innerHTML = Math.floor(Number(upgradeCost[0].innerHTML)*1.1);
+                    if (countVal > upOne){
+                        var lsCount = localStorage.getItem("lastCount");
+                        var newCount = lsCount - upOne;
                         console.log(newCount);
                         counter.innerHTML = newCount;
                     }
