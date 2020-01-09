@@ -1,10 +1,13 @@
 function Cookie() {
 
+
     this.click = function () {
+
         clickAmount++;
         updateVegan();
 
         return totalAmaount;
+
     };
 
     this.autoIncrease = function () {
@@ -15,33 +18,48 @@ function Cookie() {
             upgradeCost += 10;
             updateVegan();
 
+
             return totalAmaount;
         }
 
         this.update = function () {
+
         };
 
-        //upgrades toch hier in oplsaan of in apparte collection?
+
         this.upgrade = function Upgrade(cost) {
 
         }
     };
+
+
 }
 
 //upgrade
+
 function UpgradeClass(cost) {
 
     this.cost = cost;
+
     this.increaseCost = function () {
+
+
+
     };
 
     this.increase = function oneUp() {
         if (totalAmaount >= cost)
         {
             intervalIncrease++;
+
+
             updateVegan();
         }
-
         return intervalIncrease;
+
     }
 }
+
+
+
+
