@@ -46,4 +46,38 @@ class Upgrade {
         setInterval(function(){increaseFunc(farmer.factor)}, this.timeOut);
 
     }
+
+
+
+
+
 }
+
+//upgrade
+
+function UpgradeClass(cost) {
+
+    this.cost = cost;
+
+    this.increaseCost = function () {
+
+
+
+    };
+
+    this.increase = function oneUp() {
+        if (totalAmaount >= cost)
+        {
+            intervalIncrease++;
+
+
+            updateVegan();
+        }
+        return intervalIncrease;
+
+    }
+}
+
+
+
+

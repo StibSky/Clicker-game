@@ -16,7 +16,43 @@ player.coins = 0;
 
 
 
-    //upgrade buttons
+
+
+
+function Cookie() {
+
+
+    this.click = function () {
+
+        clickAmount++;
+        totalAmaount = clickAmount + intervalIncrease;
+        counter.innerHTML = totalAmaount;
+        return totalAmaount;
+
+    };
+
+    this.autoIncrease = function () {
+        if (totalAmaount - upgradeCost < 0){
+            console.log("fuck off mate");
+        } else {
+            totalAmaount = clickAmount + intervalIncrease;
+            counter.innerHTML = totalAmaount;
+            setInterval(oneUp, 1000);
+
+
+            return totalAmaount;
+        }
+        
+    };
+
+
+}
+
+
+
+
+// cookie clickable and saves number
+
     upgradeOne.addEventListener("click", function () {
         if (player.coins >= farmer.costs) {
             farmer.buyUpgrade();
