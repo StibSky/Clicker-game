@@ -1,3 +1,7 @@
+//welke hier niet meer nodig? delete plox :)
+//Globals maken die niet anders kunnen dan global
+
+
 let upgradeOne = document.getElementById("upgradeOne");
 
 let player = new Player(0,0);
@@ -42,11 +46,13 @@ player.coins = 0;
 document.getElementById("reset").addEventListener("click", function () {
     localStorage.clear();
 });
+// deze mss naar de Classes verplaatsen? Of in Game loop plaatsen...
 
 function updateCosts() {
     document.getElementById("costOne").innerHTML = farmer.costs;
     document.getElementById("amountFarmers").innerHTML = farmer.timesUpgraded;
 }
+// deze mss naar de Classes verplaatsen? Of in Game loop plaatsen...
 
 function updateVegan() {
     counter.innerHTML = player.coins;
