@@ -14,7 +14,7 @@ function Cookie() {
         if (totalAmaount - upgradeCost <= 0){
             console.log("fuck off mate");
         } else {
-            setInterval(oneUp, 1000);
+            setInterval(this.increase(), 1000);
             upgradeCost += 10;
             updateVegan();
 
@@ -24,6 +24,11 @@ function Cookie() {
 
         this.update = function () {
 
+        };
+
+
+        this.upgrade = function Upgrade(cost) {
+
         }
     };
 
@@ -31,14 +36,30 @@ function Cookie() {
 }
 
 //upgrade
-function oneUp() {
-    if (totalAmaount >= 10)
-    {
-        intervalIncrease++;
+
+function UpgradeClass(cost) {
+
+    this.cost = cost;
+
+    this.increaseCost = function () {
 
 
-        updateVegan();
+
+    };
+
+    this.increase = function oneUp() {
+        if (totalAmaount >= cost)
+        {
+            intervalIncrease++;
+
+
+            updateVegan();
+        }
+        return intervalIncrease;
+
     }
-    return intervalIncrease;
-
 }
+
+
+
+
