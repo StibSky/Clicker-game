@@ -1,27 +1,37 @@
+let upgradeOne = document.getElementById("upgradeOne");
 
+let player = new Player(0,0);
+let farmer = new Upgrade(10, 0, 1, 1000);
 
-let cookie1 = new Cookie();
-
+//let farmer = new Upgrade(100,10,0);
+//player.upgrades.add(farmer);
 
 let upgradeCost = 0;
 let counter = document.querySelector("#counter");
-let clickAmount = 0;
+player.clicks = 0;
 let intervalIncrease = 0;
-let totalAmaount = 0;
-
-let upgradeOne = document.getElementById("upgradeOne");
+player.coins = 0;
 
 
-// cookie clickable and saves number
-    let image = document.getElementById("clickImage");
+
+
+
+    //upgrade buttons
     upgradeOne.addEventListener("click", function () {
-            cookie1.autoIncrease();
+        if (player.coins >= farmer.costs) {
+            farmer.buyUpgrade();
+            farmer.increasePerBuy();
+            farmer.increasePerClick();
+        }
+
     });
 
+    //click on vegan  button
+    let image = document.getElementById("clickImage");
     image.addEventListener("click", function (){
-        cookie1.click();
+        player.click();
         //store
-        localStorage.setItem("lastCount", totalAmaount);
+        localStorage.setItem("lastCount", player.coins);
 
     });
 
@@ -35,10 +45,14 @@ document.getElementById("reset").addEventListener("click", function () {
     localStorage.clear();
 });
 
+function updateCosts() {
+    document.getElementById("costOne").innerHTML = farmer.costs;
+    document.getElementById("amountFarmers").innerHTML = farmer.timesUpgraded;
+}
+
 function updateVegan() {
-    totalAmaount = intervalIncrease + clickAmount - upgradeCost;
-    counter.innerHTML = totalAmaount;
-    document.getElementById("debugClick").innerHTML = "ClickAmount= "+ clickAmount;
-    document.getElementById("debugTotal").innerHTML = "TotalAmount= "+ totalAmaount;
+    counter.innerHTML = player.coins;
+    document.getElementById("debugClick").innerHTML = "clickAmount "+ player.clicks;
+    document.getElementById("debugTotal").innerHTML = "Coins "+ player.coins;
     document.getElementById("debugUpdate").innerHTML= "UpdateAmount= " + intervalIncrease;
 }
