@@ -6,40 +6,58 @@ let upgradeOne = document.getElementById("upgradeOne");
 
 let player = new Player(0,0);
 let farmer = new Upgrade(10, 0, 1, 1000);
-
+let upgradeCollection;
 //let farmer = new Upgrade(100,10,0);
 //player.upgrades.add(farmer);
 
-let upgradeCost = 0;
+
 let counter = document.querySelector("#counter");
-player.clicks = 0;
 let intervalIncrease = 0;
-player.coins = 0;
 
 
 
 
-    upgradeOne.addEventListener("click", function () {
-        if (player.coins >= farmer.costs) {
-            farmer.buyUpgrade();
-            farmer.increasePerBuy();
-            farmer.increasePerClick();
-        }
 
-    });
+upgradeOne.addEventListener("click", function () {
+    if (player.coins >= farmer.costs) {
+        addUpgrade(farmer);
+        upgradeCollection.add(farmer);
+    }
 
-    //click on vegan  button
-    let image = document.getElementById("clickImage");
-    image.addEventListener("click", function (){
-        player.click();
-        //store
-        localStorage.setItem("lastCount", player.coins);
+});
 
-    });
+function addUpgrade(nieuw) {
+    nieuw.buyUpgrade();
+    nieuw.increasePerBuy();
+    nieuw.increasePerClick();
+    upgradeCollection.add(nieuw);
+}
 
+//click on vegan  button
+let image = document.getElementById("clickImage");
+image.addEventListener("click", function (){
+    player.click();
+    //store
+    localStorage.setItem("lastCount", player.coins);
 
-    // Retrieve
-    counter.innerHTML = localStorage.getItem("lastCount");
+});
+
+//Save functionality
+let saveBtn = document.getElementById("saveBtn");
+saveBtn.addEventListener("click", function (){
+    localStorage.setItem("player", player.save());
+    localStorage.setItem("upgrades", upgradeCollection);
+
+});
+
+//Load functionality
+let loadBtn = document.getElementById("loadBtn");
+loadBtn.addEventListener("click", function (){
+    player.load( localStorage.getItem("player"));
+    upgradeCollection = localStorage.getItem("upgrades");
+});
+// Retrieve
+counter.innerHTML = localStorage.getItem("lastCount");
 
 
 
@@ -56,6 +74,7 @@ function updateCosts() {
 
 function updateVegan() {
     counter.innerHTML = player.coins;
+    //live debug hieronder
     document.getElementById("debugClick").innerHTML = "clickAmount "+ player.clicks;
     document.getElementById("debugTotal").innerHTML = "Coins "+ player.coins;
     document.getElementById("debugUpdate").innerHTML= "UpdateAmount= " + intervalIncrease;
